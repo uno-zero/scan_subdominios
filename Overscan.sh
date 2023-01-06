@@ -1,7 +1,7 @@
 #!/bin/sh
 #   By uno-zero                                                   
 #####################
-echo "\e[1;36m ===================================================================================>";
+echo "===================================================================================>";
 cat << !
       ,           , 
      /             \ 
@@ -11,43 +11,44 @@ cat << !
          \  '  / 
           ): :( 
           :o_o: 
-           "-"   BY: uno-zero
+           "-"   BY: unozero
 !
 #sleep 2
 read -p "                     Domain:  " var1
-echo  "\e[32m                    \e[0m";
-echo  "\e[32m                    \e[0m";
+echo  "                    ";
+echo  "                    ";
 ## Subdomain Enumeration
 
 ## Subdomain Enumeration
-        echo "\e[1;31m     Checking with Assetfinder! \e[0m";
+        echo "     Checking with Assetfinder! ";
         assetfinder -subs-only $var1 >> assetfinder.txt;
-        echo "\e[1;32m     Checking with Subfinder! \e[0m";
+        echo "     Checking with Subfinder! ";
         subfinder -d $var1 -recursive -silent -all -t 500 -o subfinder.txt;
-        echo "\e[1;35m     Checking with Sublist3r! \e[0m";
+        echo "     Checking with Sublist3r! ";
         sublist3r -d $var1 -n -t 500 -o sublist3r.txt;
-        echo "\e[1;36m     Checking with Amass! \e[0m";
+        echo "     Checking with Amass! ";
         amass enum -passive -norecursive -noalts -d $var1 -o amass.txt;
-	echo "\e[32m                    \e[0m";
-        echo "\e[1;33m               End Recon \e[0m";
-	echo "\e[32m                    \e[0m";
-	echo "\e[32m                    \e[0m";
+	echo "                    ";
+        echo "               End Recon ";
+	echo "                    ";
+	echo "                    ";
 ## Subdomain Concatenation
         cat *.txt > subdomains.txt;
-        echo "\e[1;36m     End contenatenatios files \e[0m";
+        echo "     End contenatenatios files ";
 ## Quitar BR
 	sed -i 's/<BR>/\n/g' "subdomains.txt";
 	sed -i 's/<br>/\n/g' "subdomains.txt";
-	echo "\e[1;36m     End cleaning files \e[0m";
+	echo "     End cleaning files ";
 ## Subdomain Results
         sort -u subdomains.txt -o subdomains.txt;
-        echo "\e[1;31m     End cleaning subdomains  \e[0m";
-	echo "\e[32m                    \e[0m";
-	echo "\e[32m                    \e[0m";
-## Takeover test
+        echo "     End cleaning subdomains  ";
+	echo "                    ";
+	echo "                    ";
+ Takeover test
 	subzy -targets subdomains.txt;
-	echo "\e[1;32m ==== End Takeover ======================================== \e[0m";
-	rm -r *.txt;
-	echo "\e[1;32m                         Clean Files         \e[0m";
-	echo "\e[32m                    \e[0m";
-	echo "\e[1;32m ========================================================== \e[0m";
+	echo " ==== End Takeover ======================================== ";
+#	rm -r *.txt;
+	echo "                         Clean Files         ";
+	echo "                    ";
+	echo " ========================================================== ";
+
