@@ -47,7 +47,7 @@ echo  "                    ";
  Takeover test
 	subzy -targets subdomains.txt;
 	echo " ==== End Takeover ======================================== ";
-#	rm -r *.txt;
+	rm -r *.txt;
 	echo "                         Clean Files         ";
 	echo "                    ";
 	echo " ========================================================== ";
